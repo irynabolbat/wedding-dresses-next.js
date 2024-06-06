@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  color: #5d5b5b;
+  font-family: "Playfair Display", serif;
+}
+
+.home {
+  &_header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (min-width: 568px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @media screen and (min-width: 768px) {
+      justify-content: space-around;
+    }
+
+    &_images {
+      position: relative;
+      width: 300px;
+      height: 500px;
+
+      @media screen and (min-width: 568px) {
+        width: 400px;
+        height: 600px;
+      }
+    }
+
+    &_text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @media screen and (min-width: 768px) {
+        padding-right: 5%;
+      }
+
+      @media screen and (min-width: 1024px) {
+        padding-right: 10%;
+      }
+
+      &--mainText {
+        text-align: center;
+        font-size: 32px;
+        text-transform: uppercase;
+        margin: 10px 0;
+
+        @media screen and (min-width: 568px) {
+          text-align: end;
+          font-size: 34px;
+        }
+
+        @media screen and (min-width: 768px) {
+          font-size: 36px;
+        }
+      }
+
+      &--subText {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        font-size: 18px;
+        margin: 5px 0;
+
+        @media screen and (min-width: 568px) {
+          text-align: end;
+          justify-content: end;
+          margin: 10px 0;
+        }
+      }
+
+      &--buttonWrapper {
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
+
+        @media screen and (min-width: 568px) {
+          margin-top: 10%;
+          justify-content: end;
+        }
+
+        &--button {
+          right: 0;
+          width: 150px;
+          font-size: 16px;
+          cursor: pointer;
+          padding: 15px 0;
+          border: 1px solid #5d5b5b;
+          transition: background-color 0.3s ease;
+          text-align: center;
+
+          &:hover {
+            color: #000;
+            border-color: #000;
+          }
+        }
+      }
+    }
+  }
+}
+
+.buttonNextPage {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+  font-size: 18px;
+  margin-top: 5%;
+
+  &:hover {
+    color: #000;
+  }
+}
+
+.pageTitle {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+.container__style {
+  padding: 20px 30px;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 50px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 20px 70px;
+  }
+}
+
+/* HomePage */
+
+.image {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  border-radius: 5%;
+}
+
+.image.visible {
+  opacity: 1;
+}

@@ -1,0 +1,27 @@
+.aboutUsShort {
+  &__container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5%;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__text {
+    text-indent: 1.5em;
+    margin-top: 3%;
+  }
+
+  &__image {
+    border-radius: 5%;
+  }
+}

@@ -1,0 +1,117 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__navigation {
+    display: none;
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &__link {
+      margin-left: 30px;
+      font-size: 16px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__icon {
+    &__link {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+
+      &__counter {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+        top: -3px;
+        right: -3px;
+        background-color: #ffb6c1;
+        color: #fff;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.burger {
+  &__menu {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+
+    &__context {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 80%;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10;
+      padding-top: 15%;
+    }
+
+    &__close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__link {
+      margin: 20px 0;
+      font-size: 18px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+  }
+}

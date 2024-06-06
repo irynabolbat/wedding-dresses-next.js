@@ -1,0 +1,128 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3%;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__imagesWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 450px;
+
+    @media screen and (min-width: 568px) {
+      width: 300px;
+      height: 500px;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 400px;
+      height: 600px;
+    }
+
+    &__button {
+      position: absolute;
+      background: none;
+      border: none;
+      font-size: 2em;
+      cursor: pointer;
+      color: white;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+
+      &--left {
+        left: 10px;
+      }
+
+      &--right {
+        right: 10px;
+      }
+    }
+  }
+
+  &__thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    margin-top: 2%;
+
+    &__thumbnail {
+      cursor: pointer;
+    }
+  }
+
+  &__image {
+    border-radius: 5%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    @media screen and (min-width: 768px) {
+      margin-left: 10%;
+    }
+  }
+
+  &__price {
+    font-size: 20px;
+  }
+
+  &__description {
+    margin-top: 5%;
+  }
+
+  &__chooseSize {
+    margin-top: 7%;
+
+    &__button {
+      width: 150px;
+      height: 50px;
+      border: 1px solid #5d5b5b;
+      margin-top: 5%;
+
+      &:disabled {
+        border-color: #b4b3b3;
+        color: #b4b3b3;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__sizesList {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+  }
+
+  &__size {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #5d5b5b;
+
+    &__button {
+      width: 100%;
+      height: 100%;
+
+      &--selected {
+        background-color: #e0e0e0;
+      }
+    }
+  }
+}

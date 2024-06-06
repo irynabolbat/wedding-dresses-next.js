@@ -1,0 +1,32 @@
+.swiperProducts {
+  margin-top: 15%;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin: 0 -30px -30px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &_item {
+    width: 190px;
+
+    @media screen and (min-width: 568px) {
+      width: 220px;
+    }
+
+    @media screen and (min-width: 1110px) {
+      width: 250px;
+    }
+  }
+}
+
+.swiperButton {
+  width: 32px;
+  height: 32px;
+}
