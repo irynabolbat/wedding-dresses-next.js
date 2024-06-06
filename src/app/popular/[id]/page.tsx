@@ -1,4 +1,5 @@
 "use client"
+import Loader from "@/app/components/Loader";
 import ProductPage from "@/app/components/Product";
 import { fetchCollectionAsync } from "@/store/slices/collectionSlice";
 import { AppDispatch, RootState } from "@/store/store";
@@ -22,9 +23,7 @@ export default function Product({params: {id}}: ProductProps) {
 
   const product = collection.find((dress: Dress) => dress.id === id) || null;
 
-  if (!product) {
-    return <div>Loading...</div>;
-  }
+  if (!product) return <Loader />
 
   return <ProductPage product={product} />;
 }

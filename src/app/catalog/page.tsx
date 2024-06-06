@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
 import { fetchCollectionAsync } from "@/store/slices/collectionSlice";
 import PageTitle from "../components/PageTitle";
+import Loader from "../components/Loader";
 
 export default function Catalog() {
   const dispatch = useDispatch<AppDispatch>();
@@ -20,11 +21,19 @@ export default function Catalog() {
       <PageTitle title="Catalog" />
       <hr />
 
-      <ul className="catalog__list">
-        {collection.map((dress: Dress) => (
-          <ProductItem key={dress.id} dress={dress} baseUrl="catalog" />
-        ))}
-      </ul>
+      {!collection ? (
+        <Loader />
+      ) : (
+        <ul className="catalog__list">
+          {collection.map((dress: Dress) => (
+            <ProductItem
+              key={dress.id}
+              dress={dress}
+              baseUrl="catalog"
+            />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
