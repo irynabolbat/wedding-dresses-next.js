@@ -125,4 +125,11 @@
       }
     }
   }
+
+  &__favorite__button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5%;
+  }
 }
