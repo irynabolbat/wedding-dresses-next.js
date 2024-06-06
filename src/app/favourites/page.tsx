@@ -9,13 +9,15 @@ import PageTitle from "../components/PageTitle";
 import Link from "next/link";
 import { Tooltip } from "react-tooltip";
 import TrashIcon from "@/app/assets/icons/trash.svg";
+import { toast } from "react-toastify";
 
 export default function Favourites() {
   const dispatch = useDispatch();
   const favourites = useSelector((state: RootState) => state.favourites.items);
 
-  const handleRemove = (id: string) => {
-    dispatch(remove(id));
+  const handleRemove = (item: Dress) => {
+    dispatch(remove(item.id));
+    toast.success(`${item.title} has been removed from favourites`);
   };
 
   return (
@@ -63,7 +65,7 @@ export default function Favourites() {
 
                 <button
                   className="favourites__removeButton"
-                  onClick={() => handleRemove(item.id)}
+                  onClick={() => handleRemove(item)}
                 >
                   <Image
                     src={TrashIcon}

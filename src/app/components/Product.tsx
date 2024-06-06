@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import '@/app/styles/ProductPage.scss'
 import PageTitle from "./PageTitle";
 import cn from "classnames";
+import { toast } from 'react-toastify';
 
 interface ProductProps {
   product: Dress;
@@ -37,6 +38,7 @@ export default function ProductPage({ product }: ProductProps) {
   
       dispatch(add(productToAdd));
       setCurSize(null);
+      toast.success(`${product.title} has been added to the cart`);
     }
   }
 

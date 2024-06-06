@@ -8,6 +8,7 @@ import FavouriteIconFull from "@/app/assets/icons/favourite-full.svg";
 import { useDispatch } from "react-redux";
 import { add } from "@/store/slices/favouritesSlice";
 import "@/app/styles/ProductItem.scss";
+import { toast } from "react-toastify";
 
 type ProductItemProps = {
   dress: Dress;
@@ -25,6 +26,7 @@ export default function ProductItem({
 
   const handleFavourite = () => {
     dispatch(add(dress));
+    toast.success(`${dress.title} has been added to the favourites`);
   };
 
   return (

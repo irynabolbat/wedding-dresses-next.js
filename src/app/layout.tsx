@@ -5,6 +5,8 @@ import { StoreProvider } from "@/store/StoreProvider";
 import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { ToastContainer, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +29,19 @@ export default function RootLayout({
           <Header />
           <div className="container__style">{children}</div>
           <Footer />
+          <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Slide}
+          />
         </StoreProvider>
       </body>
     </html>

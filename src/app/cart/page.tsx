@@ -7,14 +7,16 @@ import { CartProduct } from "@/types/CartProduct";
 import PageTitle from "../components/PageTitle";
 import Link from "next/link";
 import TrashIcon from "@/app/assets/icons/trash.svg";
+import { toast } from "react-toastify";
 
 export default function Cart() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
 
-  const removeFromCart = (productId: string) => {
-    dispatch(remove(productId));
+  const removeFromCart = (item: CartProduct) => {
+    dispatch(remove(item.id));
+    toast.success(`${item.title} has been removed from cart`);
   };
 
   const submitOrder = () => {
@@ -23,6 +25,7 @@ export default function Cart() {
 
   const handleClearCart = () => {
     dispatch(clear());
+    toast.success("The cart has been cleared");
   };
 
   return (
@@ -73,7 +76,7 @@ export default function Cart() {
 
                   <button
                     className="cart__removeButton"
-                    onClick={() => removeFromCart(item.id)}
+                    onClick={() => removeFromCart(item)}
                   >
                     <Image
                       src={TrashIcon}
