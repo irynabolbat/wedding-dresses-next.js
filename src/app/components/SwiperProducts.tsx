@@ -54,7 +54,7 @@ export default function SwiperProducts({ popularDresses }: CarouselProps) {
               <SwiperSlide key={item.id}>
                 <ProductItem
                   dress={item}
-                  className="swiperProducts_item"
+                  className="swiperProducts__item"
                   baseUrl="popular"
                 />
               </SwiperSlide>

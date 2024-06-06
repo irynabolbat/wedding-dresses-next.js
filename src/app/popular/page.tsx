@@ -53,6 +53,7 @@ export default function PopularProducts() {
                 key={dress.id}
                 dress={dress}
                 baseUrl="popular"
+                className="itemWidth"
               />
             ))}
           </ul>

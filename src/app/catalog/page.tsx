@@ -47,6 +47,7 @@ export default function Catalog() {
                 key={dress.id}
                 dress={dress}
                 baseUrl="catalog"
+                className="itemWidth"
               />
             ))}
           </ul>
