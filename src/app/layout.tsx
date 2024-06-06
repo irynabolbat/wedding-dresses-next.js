@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Breadcrumbs } from "./components/Breadcrumbs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,10 @@ export default function RootLayout({
       >
         <StoreProvider>
           <Header />
-          <div className="container__style">{children}</div>
+          <div className="container__style">
+            <Breadcrumbs />
+            {children}
+          </div>
           <Footer />
           <ToastContainer
             position="top-right"

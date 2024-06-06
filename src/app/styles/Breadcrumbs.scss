@@ -1,0 +1,14 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 0;
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__arrow {
+    margin: 0 4px;
+  }
+}
