@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 3%;
+
+  button {
+    margin: 0 5px;
+    padding: 8px 16px;
+    border: 1px solid #5d5b5b;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+
+    &.active {
+      background-color: #5d5b5b;
+      color: #fff;
+      border-color: #474646;
+    }
+
+    &:hover:not(.active) {
+      background-color: #f0f0f0;
+    }
+  }
+}
