@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCollectionAsync } from "@/store/slices/collectionSlice";
 import { AppDispatch, RootState } from "@/store/store";
@@ -22,11 +22,12 @@ const images = [product1, product2, product3];
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>();
   const collection = useSelector((state: RootState) => state.collection.value);
-  const sortedDresses = collection
-    ? [...collection]
-        .sort((a: Dress, b: Dress) => b.price - a.price)
-        .slice(0, 30)
-    : [];
+  const sortedDresses = useMemo(() => {
+    if (!collection) return [];
+    return [...collection]
+      .sort((a: Dress, b: Dress) => b.price - a.price)
+      .slice(0, 30);
+  }, [collection]);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   useEffect(() => {
