@@ -21,6 +21,7 @@ export default function Cart() {
   };
 
   const submitOrder = () => {
+    dispatch(clear());
     alert("Thanks for order");
   };
 
