@@ -1,5 +1,12 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "export",
+  basePath: "/repository",
+  assetPrefix: "/repository/",
   images: {
-    domains: ['media1.madewithlovebridal.com'],
+    unoptimized: true,
+    domains: ["media1.madewithlovebridal.com"],
   },
 };
+
+module.exports = nextConfig;
