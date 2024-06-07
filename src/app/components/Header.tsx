@@ -21,7 +21,7 @@ export default function Header() {
     (state: RootState) => state.favourites.items
   );
 
-  const cartItems: CartProduct[] = useSelector(
+  const cartItems: CartProduct[] | any = useSelector(
     (state: RootState) => state.cart.items
   );
 

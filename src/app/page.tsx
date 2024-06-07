@@ -54,7 +54,7 @@ export default function Home() {
               src={image}
               width={400}
               height={600}
-              alt="Bride's Charm"
+              alt="Bride&apos;s Charm"
               className={cn("image", {
                 visible: index === currentImageIndex,
               })}
@@ -63,7 +63,7 @@ export default function Home() {
         </div>
 
         <div className="home_header_text">
-          <h1 className="home_header_text--mainText">BRIDE'S CHARM</h1>
+          <h1 className="home_header_text--mainText">BRIDE&apos;S CHARM</h1>
           <p className="home_header_text--subText">
             the best for you
             <Image

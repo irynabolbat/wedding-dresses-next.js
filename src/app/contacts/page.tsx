@@ -8,7 +8,7 @@ export default function Contacts() {
 
       <div className="contacts__details">
         <p>
-          <strong>Store Name:</strong> Bride's Charm
+          <strong>Store Name:</strong> Bride&apos;s Charm
         </p>
         <p>
           <strong>Address:</strong> 123 Wedding Lane, Bridal City, BC 12345

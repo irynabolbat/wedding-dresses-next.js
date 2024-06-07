@@ -14,12 +14,12 @@ export default function About() {
 
       <div className="about__container">
         <h3 className="about__intro">
-          BRIDE'S CHARM IS A LUXURY BRIDAL BRAND, KNOWN FOR IT’S
+          BRIDE&apos;S CHARM IS A LUXURY BRIDAL BRAND, KNOWN FOR IT&apos;S
           EFFORTLESSLY CHIC, QUALITY MADE AND DISTINCTLY PERSONABLE BRIDAL
           EXPERIENCE.
         </h3>
         <p className="about__text">
-          Designed by Carla Jenkins, Bride's chaem has revolutionised the
+          Designed by Carla Jenkins, Bride&apos;s chaem has revolutionised the
           bridal world by creating beautiful and modern dresses for everyday,
           natural beauties. We are known for our daring V necklines and plunging
           low backs as well as our luxurious French crepe dresses.
@@ -53,8 +53,8 @@ export default function About() {
           <div className="about__text__container">
             <h4 className="about__titleStory">OUR BEGINNINGS</h4>
             <p className="about__text">
-              Bride's Charm is a luxury bridal brand, known for
-              it’s effortlessly chic, quality made and distinctly personable
+              Bride&apos;s Charm is a luxury bridal brand, known for
+              it&apos;s effortlessly chic, quality made and distinctly personable
               bridal experience. Founded by designer and director Carla Jenkins
               in 2013, BC started from humble beginnings on the Gold Coast
               after discovering the underwhelming selection of bridal available
@@ -71,11 +71,11 @@ export default function About() {
 
         <h4 className="about__titleStory">OUR COMMITMENT</h4>
         <p className="about__text">
-          Bride's Charm designs are carefully considered at every stage of
+          Bride&apos;s Charm designs are carefully considered at every stage of
           production, from conceptualisation to completion our experienced team
           and designer meticulously perfect BC designs to ensure our brides’
           dream dresses exceed their expectations for their most special day.
-          Bride's Charm are committed to designing and producing the highest
+          Bride&apos;s Charm are committed to designing and producing the highest
           quality unique dresses and bridal accessories, as well as the highest
           quality experience for our brides.
         </p>

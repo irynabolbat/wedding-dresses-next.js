@@ -53,7 +53,7 @@ export default function Cart() {
           </button>
 
           <ul className="cart__itemsList">
-            {Object.values(cartItems).map((item: CartProduct) => (
+            {Object.values(cartItems).map((item: CartProduct | any) => (
               <li
                 key={item.id}
                 className="cart__item"
