@@ -12,9 +12,9 @@ import ProductItem from "./ProductItem";
 import { SwiperButtonNext } from "./SwiperButtonNext";
 import { SwiperButtonPrev } from "./SwiperButtonPrev";
 
-interface CarouselProps {
+type CarouselProps = {
   popularDresses: Dress[];
-}
+};
 
 export default function SwiperProducts({ popularDresses }: CarouselProps) {
   return (
