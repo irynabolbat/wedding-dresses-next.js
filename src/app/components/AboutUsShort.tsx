@@ -12,7 +12,7 @@ export default function AboutUsShort() {
       <div className="aboutUsShort__container">
         <div className="aboutUsShort__inner">
           <p className="aboutUsShort__text">
-            Designed by Carla Jenkins, Made with Love has revolutionised the
+            Designed by Carla Jenkins, Bride's Charm has revolutionised the
             bridal world by creating beautiful and modern dresses for everyday,
             natural beauties. We are known for our daring V necklines and
             plunging low backs as well as our luxurious French crepe dresses...

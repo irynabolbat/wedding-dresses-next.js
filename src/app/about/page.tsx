@@ -14,16 +14,15 @@ export default function About() {
 
       <div className="about__container">
         <h3 className="about__intro">
-          MADE WITH LOVE IS AN AUSTRALIAN LUXURY BRIDAL BRAND, KNOWN FOR IT’S
+          BRIDE'S CHARM IS A LUXURY BRIDAL BRAND, KNOWN FOR IT’S
           EFFORTLESSLY CHIC, QUALITY MADE AND DISTINCTLY PERSONABLE BRIDAL
           EXPERIENCE.
         </h3>
         <p className="about__text">
-          Designed by Carla Jenkins, Made with Love has revolutionised the
+          Designed by Carla Jenkins, Bride's chaem has revolutionised the
           bridal world by creating beautiful and modern dresses for everyday,
           natural beauties. We are known for our daring V necklines and plunging
-          low backs as well as our luxurious French crepe dresses. Our designs
-          can be found in exclusive MWL boutiques and retailers worldwide.
+          low backs as well as our luxurious French crepe dresses.
         </p>
         <Image
           src={aboutUsPhoto}
@@ -54,15 +53,12 @@ export default function About() {
           <div className="about__text__container">
             <h4 className="about__titleStory">OUR BEGINNINGS</h4>
             <p className="about__text">
-              Made with Love is an Australian luxury bridal brand, known for
+              Bride's Charm is a luxury bridal brand, known for
               it’s effortlessly chic, quality made and distinctly personable
               bridal experience. Founded by designer and director Carla Jenkins
-              in 2013, MWL started from humble beginnings on the Gold Coast
+              in 2013, BC started from humble beginnings on the Gold Coast
               after discovering the underwhelming selection of bridal available
-              while on her own journey to find the perfect dress. Fast forward
-              to today, MWL is now an internationally recognised family owned
-              and operated business. MWL has carved the way for a modern,
-              inclusive and down to earth experience for all brides.
+              while on her own journey to find the perfect dress.
             </p>
             <h4 className="about__titleStory">OUR MISSION</h4>
             <p className="about__text">
@@ -75,11 +71,11 @@ export default function About() {
 
         <h4 className="about__titleStory">OUR COMMITMENT</h4>
         <p className="about__text">
-          Made with Love designs are carefully considered at every stage of
+          Bride's Charm designs are carefully considered at every stage of
           production, from conceptualisation to completion our experienced team
-          and designer meticulously perfect MWL designs to ensure our brides’
+          and designer meticulously perfect BC designs to ensure our brides’
           dream dresses exceed their expectations for their most special day.
-          Made With Love are committed to designing and producing the highest
+          Bride's Charm are committed to designing and producing the highest
           quality unique dresses and bridal accessories, as well as the highest
           quality experience for our brides.
         </p>
