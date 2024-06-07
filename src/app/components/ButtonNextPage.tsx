@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import ArrowRightIcon from "@/app/assets/icons/arrow-right.svg";
+import { type } from "os";
 
-interface ButtonNextPageProps {
+type ButtonNextPageProps = {
   btnText: string;
   btnHref: string;
-}
+};
 
 export default function ButtonNextPage({
   btnText,

@@ -1,19 +1,21 @@
 "use client";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCollectionAsync } from "@/store/slices/collectionSlice";
+import { AppDispatch, RootState } from "@/store/store";
+import cn from "classnames";
 import Image from "next/image";
+import Link from "next/link";
+
+import FavouriteIcon from "@/app/assets/icons/favourite.svg";
 import product1 from "@/app/assets/images/productMainPage1.jpg";
 import product2 from "@/app/assets/images/productMainPage2.png";
 import product3 from "@/app/assets/images/productMainPage3.png";
-import FavouriteIcon from "@/app/assets/icons/favourite.svg";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 import { Dress } from "@/types/Dress";
-import SwiperProducts from "./components/SwiperProducts";
+
 import AboutUsShort from "./components/AboutUsShort";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "@/store/store";
-import { fetchCollectionAsync } from "@/store/slices/collectionSlice";
-import cn from "classnames";
 import ButtonNextPage from "./components/ButtonNextPage";
+import SwiperProducts from "./components/SwiperProducts";
 
 const images = [product1, product2, product3];
 
@@ -52,8 +54,8 @@ export default function Home() {
               width={400}
               height={600}
               alt="Bride's Charm"
-              className={cn('image', {
-                'visible': index === currentImageIndex
+              className={cn("image", {
+                visible: index === currentImageIndex,
               })}
             />
           ))}
@@ -83,7 +85,10 @@ export default function Home() {
 
       <SwiperProducts popularDresses={sortedDresses} />
 
-      <ButtonNextPage btnText={'See more'} btnHref={'/popular'} />
+      <ButtonNextPage
+        btnText={"See more"}
+        btnHref={"/popular"}
+      />
 
       <AboutUsShort />
     </div>

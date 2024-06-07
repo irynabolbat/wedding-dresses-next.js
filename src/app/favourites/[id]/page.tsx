@@ -1,17 +1,18 @@
 "use client";
-import Loader from "@/app/components/Loader";
-import ProductPage from "@/app/components/Product";
-import { fetchCollectionAsync } from "@/store/slices/collectionSlice";
-import { AppDispatch, RootState } from "@/store/store";
-import { Dress } from "@/types/Dress";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/store/store";
+import { fetchCollectionAsync } from "@/store/slices/collectionSlice";
+
+import Loader from "@/app/components/Loader";
+import ProductPage from "@/app/components/Product";
+import { Dress } from "@/types/Dress";
 
 type ProductProps = {
   params: {
-    id: string,
-  }
-}
+    id: string;
+  };
+};
 
 export default function Product({ params: { id } }: ProductProps) {
   const dispatch = useDispatch<AppDispatch>();
@@ -23,7 +24,7 @@ export default function Product({ params: { id } }: ProductProps) {
 
   const product = collection.find((dress: Dress) => dress.id === id) || null;
 
-  if (!product) return <Loader />
+  if (!product) return <Loader />;
 
   return <ProductPage product={product} />;
 }

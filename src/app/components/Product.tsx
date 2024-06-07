@@ -1,22 +1,23 @@
 "use client";
-import { add } from "@/store/slices/cartSlice";
-import { CartProduct } from "@/types/CartProduct";
-import { Dress } from "@/types/Dress";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "@/app/styles/ProductPage.scss";
-import PageTitle from "./PageTitle";
-import cn from "classnames";
-import { toast } from "react-toastify";
-import { RootState } from "@/store/store";
-import FavouriteIcon from "@/app/assets/icons/favourite.svg";
-import FavouriteIconFull from "@/app/assets/icons/favourite-full.svg";
+import { add } from "@/store/slices/cartSlice";
 import { add as addToFav, remove } from "@/store/slices/favouritesSlice";
+import { RootState } from "@/store/store";
+import cn from "classnames";
+import Image from "next/image";
+import { toast } from "react-toastify";
 
-interface ProductProps {
+import FavouriteIconFull from "@/app/assets/icons/favourite-full.svg";
+import FavouriteIcon from "@/app/assets/icons/favourite.svg";
+import "@/app/styles/ProductPage.scss";
+import { CartProduct } from "@/types/CartProduct";
+import { Dress } from "@/types/Dress";
+import PageTitle from "./PageTitle";
+
+type ProductProps = {
   product: Dress;
-}
+};
 
 export default function ProductPage({ product }: ProductProps) {
   const dispatch = useDispatch();

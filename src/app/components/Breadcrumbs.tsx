@@ -1,13 +1,14 @@
 "use client";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCollectionAsync } from "@/store/slices/collectionSlice";
+import { AppDispatch, RootState } from "@/store/store";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import ArrowIcon from "@/app/assets/icons/chevron-right.svg";
-import { useEffect, useState } from "react";
 import "@/app/styles/Breadcrumbs.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "@/store/store";
-import { fetchCollectionAsync } from "@/store/slices/collectionSlice";
 import { Dress } from "@/types/Dress";
 
 export const Breadcrumbs = () => {

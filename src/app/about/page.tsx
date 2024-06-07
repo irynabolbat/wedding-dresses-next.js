@@ -1,10 +1,10 @@
 import Image from "next/image";
 import aboutUsPhoto from "@/app/assets/images/about_us.png";
-import aboutUsPhoto2 from "@/app/assets/images/Carla-09922.webp";
+import aboutUsPhoto2 from "@/app/assets/images/owner.png";
 import caruselPhoto1 from "@/app/assets/images/carusel1.png";
 import caruselPhoto2 from "@/app/assets/images/carusel2.png";
 import caruselPhoto3 from "@/app/assets/images/carusel3.png";
-import PageTitle from "../components/PageTitle";
+import PageTitle from "@/app/components/PageTitle";
 
 export default function About() {
   return (

@@ -1,24 +1,27 @@
-import { fetchCollection } from '@/api/dressesCollection/route'
-import { Dress } from '@/types/Dress'
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { fetchCollection } from "@/api/dressesCollection/route";
+import { Dress } from "@/types/Dress";
 
-export const fetchCollectionAsync = createAsyncThunk('collection/fetchCollection', async () => {
-  const collection = await fetchCollection();
-  return collection;
-});
+export const fetchCollectionAsync = createAsyncThunk(
+  "collection/fetchCollection",
+  async () => {
+    const collection = await fetchCollection();
+    return collection;
+  }
+);
 
 export type CollectionState = {
-  value: Dress[],
-  loading: boolean
-}
+  value: Dress[];
+  loading: boolean;
+};
 
 const initialState: CollectionState = {
   value: [],
-  loading: false
-}
+  loading: false,
+};
 
 export const collectionSlice = createSlice({
-  name: 'collection',
+  name: "collection",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -34,6 +37,6 @@ export const collectionSlice = createSlice({
         state.loading = false;
       });
   },
-})
+});
 
-export default collectionSlice.reducer
+export default collectionSlice.reducer;

@@ -1,11 +1,9 @@
 "use client";
 
 type PageTitleProps = {
-  title: string
-}
+  title: string;
+};
 
-export default function PageTitle({title}: PageTitleProps) {
-  return (
-    <h2 className="pageTitle">{title}</h2>
-  );
+export default function PageTitle({ title }: PageTitleProps) {
+  return <h2 className="pageTitle">{title}</h2>;
 }

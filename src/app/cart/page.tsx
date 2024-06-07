@@ -1,13 +1,14 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/store/store";
-import Image from "next/image";
-import { clear, remove } from "@/store/slices/cartSlice";
-import { CartProduct } from "@/types/CartProduct";
-import PageTitle from "../components/PageTitle";
-import Link from "next/link";
-import TrashIcon from "@/app/assets/icons/trash.svg";
 import { toast } from "react-toastify";
+import Image from "next/image";
+import Link from "next/link";
+import { clear, remove } from "@/store/slices/cartSlice";
+import { RootState } from "@/store/store";
+
+import TrashIcon from "@/app/assets/icons/trash.svg";
+import { CartProduct } from "@/types/CartProduct";
+import PageTitle from "@/app/components/PageTitle";
 
 export default function Cart() {
   const dispatch = useDispatch();

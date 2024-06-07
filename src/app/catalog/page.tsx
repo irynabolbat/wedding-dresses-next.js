@@ -1,13 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Dress } from "@/types/Dress";
-import ProductItem from "../components/ProductItem";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
 import { fetchCollectionAsync } from "@/store/slices/collectionSlice";
-import PageTitle from "../components/PageTitle";
-import Loader from "../components/Loader";
-import Pagination from "../components/Pagination";
+
+import ProductItem from "@/app/components/ProductItem";
+import Loader from "@/app/components/Loader";
+import PageTitle from "@/app/components/PageTitle";
+import Pagination from "@/app/components/Pagination";
+import { Dress } from "@/types/Dress";
 
 export default function Catalog() {
   const dispatch = useDispatch<AppDispatch>();

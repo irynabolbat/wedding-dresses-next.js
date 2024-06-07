@@ -1,15 +1,16 @@
 "use client";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { Dress } from "@/types/Dress";
-import FavouriteIcon from "@/app/assets/icons/favourite.svg";
-import FavouriteIconFull from "@/app/assets/icons/favourite-full.svg";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { add, remove } from "@/store/slices/favouritesSlice";
-import "@/app/styles/ProductItem.scss";
-import { toast } from "react-toastify";
 import { RootState } from "@/store/store";
+import { add, remove } from "@/store/slices/favouritesSlice";
+import Image from "next/image";
+import Link from "next/link";
+import { toast } from "react-toastify";
+
+import FavouriteIconFull from "@/app/assets/icons/favourite-full.svg";
+import FavouriteIcon from "@/app/assets/icons/favourite.svg";
+import "@/app/styles/ProductItem.scss";
+import { Dress } from "@/types/Dress";
 
 type ProductItemProps = {
   dress: Dress;

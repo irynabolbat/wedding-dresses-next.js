@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
 import { useSwiper } from "swiper/react";
-import "@/app/styles/SwiperProducts.scss";
-import ArrowRightIcon from "@/app/assets/icons/arrow-right.svg";
 import Image from "next/image";
+import ArrowRightIcon from "@/app/assets/icons/arrow-right.svg";
+import "@/app/styles/SwiperProducts.scss";
 
 export const SwiperButtonNext = () => {
   const swiper = useSwiper();

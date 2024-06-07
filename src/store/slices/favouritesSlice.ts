@@ -1,8 +1,8 @@
-import { Dress } from "@/types/Dress";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { Dress } from "@/types/Dress";
 
 export type FavouritesState = {
-  items: Dress[],
+  items: Dress[];
 };
 
 const initialState: FavouritesState = {
@@ -15,12 +15,14 @@ export const favouritesSlice = createSlice({
   reducers: {
     add: (state, action: PayloadAction<Dress>) => {
       const item = action.payload;
-      if (!state.items.find(fav => fav.id === item.id)) {
+      if (!state.items.find((fav) => fav.id === item.id)) {
         state.items.push(item);
       }
     },
     remove: (state, action: PayloadAction<string>) => {
-      state.items = state.items.filter((product: Dress) => product.id !== action.payload);
+      state.items = state.items.filter(
+        (product: Dress) => product.id !== action.payload
+      );
     },
   },
 });

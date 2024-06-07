@@ -1,15 +1,16 @@
 "use client";
-import { Dress } from "@/types/Dress";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { SwiperButtonNext } from "./SwiperButtonNext";
-import { SwiperButtonPrev } from "./SwiperButtonPrev";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import ProductItem from "./ProductItem";
+
 import "@/app/styles/SwiperProducts.scss";
+import { Dress } from "@/types/Dress";
 import PageTitle from "./PageTitle";
+import ProductItem from "./ProductItem";
+import { SwiperButtonNext } from "./SwiperButtonNext";
+import { SwiperButtonPrev } from "./SwiperButtonPrev";
 
 interface CarouselProps {
   popularDresses: Dress[];
@@ -50,15 +51,15 @@ export default function SwiperProducts({ popularDresses }: CarouselProps) {
             <SwiperButtonNext />
           </div>
 
-            {popularDresses.map((item) => (
-              <SwiperSlide key={item.id}>
-                <ProductItem
-                  dress={item}
-                  className="swiperProducts__item"
-                  baseUrl="popular"
-                />
-              </SwiperSlide>
-            ))}
+          {popularDresses.map((item) => (
+            <SwiperSlide key={item.id}>
+              <ProductItem
+                dress={item}
+                className="swiperProducts__item"
+                baseUrl="popular"
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

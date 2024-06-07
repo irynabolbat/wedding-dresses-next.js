@@ -1,15 +1,15 @@
 "use client";
-
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { Tooltip } from "react-tooltip";
 import { RootState } from "@/store/store";
-import Image from "next/image";
 import { remove } from "@/store/slices/favouritesSlice";
+import Image from "next/image";
+import Link from "next/link";
+
+import TrashIcon from "@/app/assets/icons/trash.svg";
 import { Dress } from "@/types/Dress";
 import PageTitle from "../components/PageTitle";
-import Link from "next/link";
-import { Tooltip } from "react-tooltip";
-import TrashIcon from "@/app/assets/icons/trash.svg";
-import { toast } from "react-toastify";
 
 export default function Favourites() {
   const dispatch = useDispatch();

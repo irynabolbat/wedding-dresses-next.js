@@ -9,10 +9,10 @@ export const firebaseConfig = {
   storageBucket: "wedding-dresses-c095d.appspot.com",
   messagingSenderId: "623119047250",
   appId: "1:623119047250:web:b57a35c326769a29179d8b",
-  measurementId: "G-WWSHRKLER3"
+  measurementId: "G-WWSHRKLER3",
 };
 
-const app = initializeApp(firebaseConfig)
-const db = getFirestore(app)
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-export { app, db } 
+export { app, db };

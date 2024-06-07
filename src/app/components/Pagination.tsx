@@ -1,5 +1,5 @@
 "use client";
-import '@/app/styles/Pagination.scss'
+import "@/app/styles/Pagination.scss";
 
 type PaginationProps = {
   currentPage: number;

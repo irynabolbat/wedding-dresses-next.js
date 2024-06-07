@@ -1,17 +1,19 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import FavouriteIcon from "@/app/assets/icons/favourite.svg";
-import CartIcon from "@/app/assets/icons/shopping_bag.svg";
+import { RootState } from "@/store/store";
+import Image from "next/image";
+import Link from "next/link";
+
 import BurgerIcon from "@/app/assets/icons/burger-menu.svg";
 import CloseIcon from "@/app/assets/icons/close-menu.svg";
-import Image from "next/image";
+import FavouriteIcon from "@/app/assets/icons/favourite.svg";
+import CartIcon from "@/app/assets/icons/shopping_bag.svg";
 import Logo from "@/app/assets/images/logo-removebg-preview.png";
 import "@/app/styles/Header.scss";
-import { RootState } from "@/store/store";
-import { Dress } from "@/types/Dress";
+
 import { CartProduct } from "@/types/CartProduct";
+import { Dress } from "@/types/Dress";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
