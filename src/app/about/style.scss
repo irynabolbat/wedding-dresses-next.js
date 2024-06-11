@@ -1,25 +1,24 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 .about {
-  margin-top: 3%;
+  margin-top: $margin-top-s;
 
   &__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include displayColumnAI();
     text-align: center;
-    margin-top: 5%;
+    margin-top: $margin-top-m;
   }
 
   &__intro {
-    font-size: 20px;
+    font-size: $font-size-l;
     margin-bottom: 20px;
     line-height: 1.5;
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 5%;
+    @include displayColumnJC();
+    margin-top: $margin-top-m;
 
     @media screen and (min-width: 1024px) {
       flex-direction: row;
@@ -29,14 +28,13 @@
   }
 
   &__text {
-    font-size: 18px;
+    font-size: $font-size-m;
     text-indent: 1.5em;
     margin-bottom: 20px;
     line-height: 1.6;
 
     &__container {
-      display: flex;
-      flex-direction: column;
+      @include displayColumn();
       text-align: center;
       width: 100%;
 
@@ -47,30 +45,27 @@
   }
 
   &__image {
-    border-radius: 10px;
+    border-radius: $border-radius;
     margin-bottom: 20px;
     max-width: 100%;
     height: auto;
   }
 
   &__wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include displayColumnAI();
     text-align: left;
     gap: 20px;
   }
 
   &__titleStory {
-    font-size: 20px;
+    font-size: $font-size-l;
     text-transform: uppercase;
     margin: 20px 0;
   }
 
   &__images {
     &__container {
-      display: flex;
-      justify-content: center;
+      @include displayRowJC();
       gap: 20px;
       flex-wrap: wrap;
     }
@@ -78,11 +73,11 @@
 
   &__carousel {
     &__image {
-      border-radius: 10px;
+      border-radius: $border-radius;
       margin-bottom: 20px;
       max-width: 100%;
       height: auto;
-      margin-top: 3%;
+      margin-top: $margin-top-s;
     }
   }
 }

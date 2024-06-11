@@ -1,17 +1,17 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 .popular {
   &__list {
-    margin-top: 3%;
-    display: flex;
+    @include displayRowSpaceBetween();
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+    margin-top: $margin-top-s;
   }
 }
 
 .itemWidth {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  @include displayRowJC();
 
   @media screen and (min-width: 560px) {
     width: 49%;

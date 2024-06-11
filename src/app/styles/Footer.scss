@@ -1,10 +1,11 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 .footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include displayColumnAI();
   padding: 30px 20px;
-  background-color: #ffffff;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  background-color: $white-color;
+  box-shadow: 0 -2px 4px $box-shadow-color;
   width: 100%;
 
   @media (min-width: 768px) {
@@ -25,10 +26,10 @@
   }
 
   &__navigation {
-    display: flex;
-    flex-direction: column;
+    @include displayColumn();
+
     &__link {
-      font-size: 16px;
+      font-size: $font-size-s;
       text-decoration: none;
       transition: color 0.3s ease;
       margin: 10px 0;
@@ -39,12 +40,12 @@
   &__contacts {
     p {
       margin: 8px 0;
-      font-size: 14px;
+      font-size: $font-size-xs;
     }
   }
 
   &__title {
     margin-bottom: 15px;
-    font-size: 20px;
+    font-size: $font-size-l;
   }
 }

@@ -1,6 +1,8 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 .breadcrumbs {
-  display: flex;
-  align-items: center;
+  @include displayRowAI();
   gap: 8px;
   padding: 20px 0;
 

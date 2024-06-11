@@ -1,12 +1,15 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 .favourites {
   margin: 0 auto;
-  margin-top: 3%;
+  margin-top: $margin-top-s;
 
   &__emptyMessage {
     text-align: center;
-    color: #777;
-    font-size: 18px;
-    margin-top: 3%;
+    color: $empty-color;
+    font-size: $font-size-m;
+    margin-top: $margin-top-s;
   }
 
   &__itemsList {
@@ -15,37 +18,33 @@
   }
 
   &__item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include displayRowSpaceBetween();
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $disabled-color;
 
     &__container {
-      display: flex;
+      @include displayRowJCBetween();
       align-items: center;
-      justify-content: space-between;
       width: 100%;
     }
 
     &__image {
       margin-right: 20px;
-      border-radius: 8px;
+      border-radius: $border-radius;
     }
 
     &__details {
-      display: flex;
-      flex-direction: column;
+      @include displayColumn();
       text-align: left;
     }
 
     &__title {
-      font-size: 20px;
+      font-size: $font-size-l;
     }
 
     &__price {
-      font-size: 18px;
-      color: #666;
+      font-size: $font-size-m;
+      color: $gray-color;
     }
 
     &__description {

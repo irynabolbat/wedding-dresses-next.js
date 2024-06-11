@@ -1,15 +1,16 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 .cart {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include displayColumnJC();
   margin: 0 auto;
-  margin-top: 3%;
+  margin-top: $margin-top-s;
 
   &__emptyMessage {
     text-align: center;
-    color: #777;
-    font-size: 18px;
-    margin-top: 3%;
+    color: $empty-color;
+    font-size: $font-size-m;
+    margin-top: $margin-top-s;
   }
 
   &__itemsList {
@@ -18,42 +19,37 @@
   }
 
   &__item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include displayRowSpaceBetween();
     padding: 10px;
     border-bottom: 1px solid #ddd;
 
     &__container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      @include displayRowSpaceBetween();
       width: 100%;
     }
 
     &__image {
       margin-right: 20px;
-      border-radius: 8px;
+      border-radius: $border-radius;
     }
 
     &__details {
-      display: flex;
-      flex-direction: column;
+      @include displayColumn();
       text-align: left;
     }
 
     &__title {
-      font-size: 20px;
+      font-size: $font-size-l;
     }
 
     &__size {
-      font-size: 16px;
-      color: #666;
+      font-size: $font-size-s;
+      color: $gray-color;
     }
 
     &__price {
-      font-size: 18px;
-      color: #666;
+      font-size: $font-size-m;
+      color: $gray-color;
     }
   }
 
@@ -64,46 +60,44 @@
   }
 
   &__total {
-    font-size: 18px;
-    margin-top: 20px;
+    font-size: $font-size-m;
+    margin-top: $margin-top-m;
     text-align: right;
     padding-right: 20px;
   }
 
   &__buttonGroup {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    @include displayRowJCBetween();
+    margin-top: $margin-top-m;
   }
 
   &__clearCartButton {
-    display: flex;
-    align-items: center;
+    @include displayRowAI();
     justify-content: end;
     gap: 5%;
     width: 200px;
-    color: #b4b3b3;
+    color: $disabled-color;
     margin-left: auto;
     padding: 10px 20px;
     cursor: pointer;
 
     &:hover {
-      color: #5d5b5b;
+      color: $text-color;
     }
   }
 
   &__submitOrderButton {
-    margin-top: 7%;
+    margin-top: $margin-top-l;
     width: 150px;
     height: 50px;
-    border: 1px solid #b4b3b3;
-    margin-top: 5%;
+    border: 1px solid $text-color;
+    margin-top: $margin-top-m;
     margin-left: auto;
     margin-right: 20px;
 
     &:hover {
-      border-color: #5d5b5b;
-      color: #5d5b5b;
+      border-color: $text-color;
+      color: $text-color;
     }
   }
 }

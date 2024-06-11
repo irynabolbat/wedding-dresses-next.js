@@ -1,16 +1,16 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 .swiperProducts {
   margin-top: 15%;
 
   &__content {
-    display: flex;
-    flex-direction: column;
+    @include displayColumn();
     margin: 0 -30px -30px;
   }
 
   &__buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include displayRowSpaceBetween();
   }
 
   &__item {

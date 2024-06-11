@@ -1,25 +1,27 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 .pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  @include displayRowJC();
+  margin-top: $margin-top-m;
   margin-bottom: 3%;
 
   button {
     margin: 0 5px;
     padding: 8px 16px;
-    border: 1px solid #5d5b5b;
-    background-color: #fff;
+    border: 1px solid $text-color;
+    background-color: $white-color;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 
     &.active {
-      background-color: #5d5b5b;
-      color: #fff;
-      border-color: #474646;
+      background-color: $text-color;
+      color: $white-color;
+      border-color: $pagination-border-color;
     }
 
     &:hover:not(.active) {
-      background-color: #f0f0f0;
+      background-color: $pagination-hover-color;
     }
   }
 }

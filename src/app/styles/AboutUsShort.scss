@@ -1,8 +1,10 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 .aboutUsShort {
   &__container {
-    display: flex;
+    @include displayRowJCBetween();
     flex-direction: column-reverse;
-    justify-content: space-between;
     align-items: center;
     gap: 5%;
 
@@ -12,16 +14,15 @@
   }
 
   &__inner {
-    display: flex;
-    flex-direction: column;
+    @include displayColumn();
   }
 
   &__text {
     text-indent: 1.5em;
-    margin-top: 3%;
+    margin-top: $margin-top-s;
   }
 
   &__image {
-    border-radius: 5%;
+    border-radius: $border-radius;
   }
 }

@@ -1,6 +1,9 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 .contacts {
   margin: auto;
-  margin-top: 3%;
+  margin-top: $margin-top-s;
 
   &__details {
     margin-bottom: 20px;
@@ -15,7 +18,7 @@
   }
 
   &__title {
-    font-size: 18px;
+    font-size: $font-size-m;
   }
 }
 

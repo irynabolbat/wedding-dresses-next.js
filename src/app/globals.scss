@@ -3,20 +3,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./variables.scss";
+@import "./mixins.scss";
+
 * {
   margin: 0;
   padding: 0;
-  color: #5d5b5b;
+  color: $text-color;
   font-family: "Playfair Display", serif;
 }
 
 .home {
   &_header {
+    @include displayColumnCenter();
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
     @media screen and (min-width: 568px) {
       flex-direction: row;
@@ -39,9 +39,7 @@
     }
 
     &_text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      @include displayColumnJC();
 
       @media screen and (min-width: 768px) {
         padding-right: 5%;
@@ -52,27 +50,24 @@
       }
 
       &--mainText {
+        font-size: $font-size-mainTitle-s;
         text-align: center;
-        font-size: 32px;
         text-transform: uppercase;
         margin: 10px 0;
 
         @media screen and (min-width: 568px) {
           text-align: end;
-          font-size: 34px;
+          font-size: $font-size-mainTitle-m;
         }
 
         @media screen and (min-width: 768px) {
-          font-size: 36px;
+          font-size: $font-size-mainTitle-l;
         }
       }
 
       &--subText {
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        font-size: 18px;
+        @include displayRowCenter();
+        font-size: $font-size-m;
         margin: 5px 0;
 
         @media screen and (min-width: 568px) {
@@ -83,28 +78,27 @@
       }
 
       &--buttonWrapper {
-        margin-top: 5%;
-        display: flex;
-        justify-content: center;
+        @include displayRowJC();
+        margin-top: $margin-top-m;
 
         @media screen and (min-width: 568px) {
-          margin-top: 10%;
+          margin-top: $margin-top-xl;
           justify-content: end;
         }
 
         &--button {
           right: 0;
           width: 150px;
-          font-size: 16px;
-          cursor: pointer;
+          font-size: $font-size-s;
           padding: 15px 0;
-          border: 1px solid #5d5b5b;
+          border: 1px solid $text-color;
           transition: background-color 0.3s ease;
           text-align: center;
+          cursor: pointer;
 
           &:hover {
-            color: #000;
-            border-color: #000;
+            color: $black-color;
+            border-color: $black-color;
           }
         }
       }
@@ -113,28 +107,26 @@
 }
 
 .buttonNextPage {
-  display: flex;
-  justify-content: end;
-  align-items: center;
+  @include displayRowJCEnd();
   gap: 5px;
-  font-size: 18px;
-  margin-top: 5%;
+  font-size: $font-size-m;
+  margin-top: $margin-top-m;
 
   &:hover {
-    color: #000;
+    color: $black-color;
   }
 }
 
 .pageTitle {
-  font-size: 24px;
+  font-size: $font-size-xl;
   text-transform: uppercase;
   margin: 10px 0;
 }
 
 .container__style {
   padding: 20px 30px;
-  width: 100%;
   min-height: 90vh;
+  width: 100%;
 
   @media screen and (min-width: 768px) {
     padding: 20px 50px;
@@ -152,7 +144,7 @@
   width: 100%;
   opacity: 0;
   transition: opacity 2s ease-in-out;
-  border-radius: 5%;
+  border-radius: $border-radius;
 }
 
 .image.visible {
@@ -161,10 +153,7 @@
 
 /* Not-found */
 .notFound {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @include displayColumnCenter();
   height: 80vh;
   text-align: center;
 
@@ -177,11 +166,11 @@
     font-size: 1.2em;
     text-decoration: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: $border-radius;
     transition: background-color 0.3s, color 0.3s;
 
     &:hover {
-      color: black;
+      color: $black-color;
     }
   }
 }

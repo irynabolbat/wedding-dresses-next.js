@@ -1,3 +1,6 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 .product {
   &__item {
     position: relative;
@@ -37,7 +40,7 @@
   }
 
   &__image {
-    border-radius: 5%;
+    border-radius: $border-radius;
   }
 
   &__title {
@@ -47,7 +50,7 @@
     bottom: 1.5rem;
     left: 1.5rem;
     right: 1.5rem;
-    background: #fff;
+    background: $white-color;
     padding: 16px 0;
 
     &::after {
@@ -57,17 +60,16 @@
       left: -4px;
       right: -4px;
       bottom: -4px;
-      border: 1px solid #fff;
+      border: 1px solid $white-color;
     }
   }
 
   &__name {
-    display: flex;
-    color: #474747;
+    @include displayRowJC();
+    color: $product-title-color;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.25rem;
     text-align: center;
-    justify-content: center;
   }
 }
