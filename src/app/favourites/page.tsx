@@ -34,7 +34,7 @@ export default function Favourites() {
   const handleAddToCart = (item: Dress) => {
     if (curSize) {
       const productToAdd: CartProduct = {
-        id: item.id,
+        id: `${item.id}_${curSize}`,
         title: item.title,
         price: item.price,
         description: item.description,

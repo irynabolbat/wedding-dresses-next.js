@@ -41,7 +41,7 @@ export default function ProductPage({ product }: ProductProps) {
   const handleAddToCart = () => {
     if (curSize) {
       const productToAdd: CartProduct = {
-        id: product.id,
+        id: `${product.id}_${curSize}`,
         title: product.title,
         price: product.price,
         description: product.description,

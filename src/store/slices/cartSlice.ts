@@ -18,7 +18,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action: PayloadAction<CartProduct>) => {
-      const productId: string = action.payload.id;
+      const productId = `${action.payload.id}_${action.payload.size}`;
 
       if (!(productId in state.items)) {
         state.items[productId] = {
@@ -46,9 +46,29 @@ export const cartSlice = createSlice({
       state.totalCount = 0;
       state.totalPrice = 0;
     },
+    increment: (state, action: PayloadAction<string>) => {
+      const id = action.payload;
+      const item = state.items[id];
+
+      if (item) {
+        item.count++;
+        state.totalCount++;
+        state.totalPrice += item.price;
+      }
+    },
+    decrement: (state, action: PayloadAction<string>) => {
+      const id = action.payload;
+      const item = state.items[id];
+
+      if (item && item.count > 1) {
+        item.count--;
+        state.totalCount--;
+        state.totalPrice -= item.price;
+      }
+    },
   },
 });
 
-export const { add, remove, clear } = cartSlice.actions;
+export const { add, remove, clear, increment, decrement } = cartSlice.actions;
 
 export default cartSlice.reducer;

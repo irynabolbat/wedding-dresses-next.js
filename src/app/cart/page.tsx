@@ -1,10 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import Image from "next/image";
 import Link from "next/link";
-import { clear, remove } from "@/store/slices/cartSlice";
+import { clear, decrement, increment, remove } from "@/store/slices/cartSlice";
 import { RootState } from "@/store/store";
 
 import TrashIcon from "@/app/assets/icons/trash.svg";
@@ -18,9 +18,10 @@ export default function Cart() {
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   const [isShowModal, setIsShowModal] = useState(false);
 
-  const removeFromCart = (item: CartProduct) => {
-    dispatch(remove(item.id));
-    toast.success(`${item.title} has been removed from cart`);
+  const removeFromCart = (dress: CartProduct) => {
+    const dressId = `${dress.id}_${dress.size}`;
+    dispatch(remove(dressId));
+    toast.success(`${dress.title} has been removed from cart`);
   };
 
   const submitOrder = () => {
@@ -34,6 +35,18 @@ export default function Cart() {
   const handleClearCart = () => {
     dispatch(clear());
     toast.success("The cart has been cleared");
+  };
+
+  const decreaseQuantity = (dress: CartProduct) => {
+    if (dress.count > 1) {
+      const dressId = `${dress.id}_${dress.size}`;
+      dispatch(decrement(dressId));
+    }
+  };
+
+  const increaseQuantity = (dress: CartProduct) => {
+    const dressId = `${dress.id}_${dress.size}`;
+    dispatch(increment(dressId));
   };
 
   return (
@@ -80,6 +93,24 @@ export default function Cart() {
                     <p className="cart__item__price">
                       Price: € {item.price.toLocaleString()}.00 EUR
                     </p>
+                  </div>
+
+                  <div className="cart__item__quantity">
+                    <button
+                      className="cart__item__quantity--operation"
+                      onClick={() => decreaseQuantity(item)}
+                    >
+                      -
+                    </button>
+                    <span className="cart__item__quantity--number">
+                      {item.count}
+                    </span>
+                    <button
+                      className="cart__item__quantity--operation"
+                      onClick={() => increaseQuantity(item)}
+                    >
+                      +
+                    </button>
                   </div>
 
                   <button
