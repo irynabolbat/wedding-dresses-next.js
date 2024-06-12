@@ -97,8 +97,7 @@
           cursor: pointer;
 
           &:hover {
-            color: $black-color;
-            border-color: $black-color;
+            @include hoverButton();
           }
         }
       }

@@ -61,7 +61,12 @@
     }
   }
 
-  &__removeButton {
+  &__buttons {
+    @include displayColumnCenter();
+    gap: 20px;
+  }
+
+  &__btn {
     border: none;
     padding: 0 10px;
     cursor: pointer;

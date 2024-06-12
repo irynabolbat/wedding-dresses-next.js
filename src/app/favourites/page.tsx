@@ -1,23 +1,59 @@
 "use client";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { Tooltip } from "react-tooltip";
 import { RootState } from "@/store/store";
 import { remove } from "@/store/slices/favouritesSlice";
+import { add } from "@/store/slices/cartSlice";
 import Image from "next/image";
 import Link from "next/link";
 
+import CartIcon from "@/app/assets/icons/shopping_bag.svg";
 import TrashIcon from "@/app/assets/icons/trash.svg";
 import { Dress } from "@/types/Dress";
+import { CartProduct } from "@/types/CartProduct";
 import PageTitle from "../components/PageTitle";
+import SizeModal from "../components/Modals/SizeModal";
 
 export default function Favourites() {
   const dispatch = useDispatch();
   const favourites = useSelector((state: RootState) => state.favourites.items);
+  const [curSize, setCurSize] = useState<string | null>(null);
+  const [selectedItem, setSelectedItem] = useState<Dress | null>(null);
 
   const handleRemove = (item: Dress) => {
     dispatch(remove(item.id));
     toast.success(`${item.title} has been removed from favourites`);
+  };
+
+  const handleChooseSize = (size: string) => {
+    setCurSize(size);
+  };
+
+  const handleAddToCart = (item: Dress) => {
+    if (curSize) {
+      const productToAdd: CartProduct = {
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        description: item.description,
+        image_url_1: item.image_url_1,
+        size: curSize,
+        count: 1,
+      };
+
+      dispatch(add(productToAdd));
+      setCurSize(null);
+      toast.success(`${item.title} has been added to the cart`);
+    }
+  };
+
+  const handleAddAndClose = () => {
+    if (selectedItem) {
+      handleAddToCart(selectedItem);
+      setSelectedItem(null);
+    }
   };
 
   return (
@@ -63,21 +99,46 @@ export default function Favourites() {
                   {`${item.description.slice(0, 150)}...`}
                 </div>
 
-                <button
-                  className="favourites__removeButton"
-                  onClick={() => handleRemove(item)}
-                >
-                  <Image
-                    src={TrashIcon}
-                    width={20}
-                    height={20}
-                    alt="Remove"
-                  />
-                </button>
+                <div className="favourites__buttons">
+                  <button
+                    className="favourites__btn"
+                    onClick={() => handleRemove(item)}
+                  >
+                    <Image
+                      src={TrashIcon}
+                      width={20}
+                      height={20}
+                      alt="Remove"
+                    />
+                  </button>
+
+                  <button
+                    className="favourites__btn"
+                    onClick={() => setSelectedItem(item)}
+                  >
+                    <Image
+                      src={CartIcon}
+                      width={20}
+                      height={20}
+                      alt="Cart"
+                    />
+                  </button>
+                </div>
               </div>
             </li>
           ))}
         </ul>
+      )}
+
+      {selectedItem && (
+        <SizeModal
+          dress={selectedItem}
+          sizes={selectedItem.sizes}
+          curSize={curSize}
+          onClose={() => setSelectedItem(null)}
+          onAddToCart={handleAddAndClose}
+          onSelectSize={handleChooseSize}
+        />
       )}
     </div>
   );

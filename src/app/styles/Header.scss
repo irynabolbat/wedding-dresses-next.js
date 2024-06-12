@@ -7,7 +7,7 @@
   background-color: $white-color;
   box-shadow: 0 2px 4px $box-shadow-color;
   position: relative;
-  z-index: 100;
+  z-index: 20;
 
   &__logo {
     @include displayRowAI();

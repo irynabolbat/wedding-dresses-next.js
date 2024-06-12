@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import Image from "next/image";
@@ -9,11 +10,13 @@ import { RootState } from "@/store/store";
 import TrashIcon from "@/app/assets/icons/trash.svg";
 import { CartProduct } from "@/types/CartProduct";
 import PageTitle from "@/app/components/PageTitle";
+import { SubmitModal } from "../components/Modals/SubmitModal";
 
 export default function Cart() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
+  const [isShowModal, setIsShowModal] = useState(false);
 
   const removeFromCart = (item: CartProduct) => {
     dispatch(remove(item.id));
@@ -21,8 +24,11 @@ export default function Cart() {
   };
 
   const submitOrder = () => {
-    dispatch(clear());
-    alert("Thanks for order");
+    setIsShowModal(true);
+  };
+
+  const closeModal = () => {
+    setIsShowModal(false);
   };
 
   const handleClearCart = () => {
@@ -102,6 +108,12 @@ export default function Cart() {
             Submit Order
           </button>
         </>
+      )}
+      {isShowModal && (
+        <SubmitModal
+          closeModal={closeModal}
+          cleanCart={() => dispatch(clear())}
+        />
       )}
     </div>
   );

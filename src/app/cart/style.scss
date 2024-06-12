@@ -94,10 +94,11 @@
     margin-top: $margin-top-m;
     margin-left: auto;
     margin-right: 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 
     &:hover {
-      border-color: $text-color;
-      color: $text-color;
+      @include hoverButton();
     }
   }
 }

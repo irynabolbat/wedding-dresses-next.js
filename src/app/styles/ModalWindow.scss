@@ -1,0 +1,97 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.modalWindow {
+  background-color: $white-color;
+  margin: auto;
+  padding: 20px;
+  border-radius: $border-radius;
+
+  &__content {
+    @include displayColumnAI();
+  }
+
+  &__close {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+  }
+
+  &__form {
+    &__input {
+      margin-top: 1px;
+      padding: 5px;
+      font-size: $font-size-xs;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: $text-color;
+        outline: none;
+      }
+    }
+
+    &__button {
+      border: 1px solid $text-color;
+      text-align: center;
+      padding: 15px 0;
+      font-size: $font-size-m;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        @include hoverButton();
+      }
+    }
+  }
+
+  &__sizes {
+    @include displayRowJC();
+    gap: 5%;
+  }
+
+  &__size {
+    @include displayRowCenter();
+    width: 50px;
+    height: 50px;
+    border: 1px solid $text-color;
+
+    &__button {
+      width: 100%;
+      height: 100%;
+
+      &--selected {
+        @include hoverButton();
+      }
+
+      &:hover {
+        background-color: $selected-btn-color;
+      }
+    }
+  }
+
+  &__addAndClose {
+    width: 150px;
+    height: 50px;
+    border: 1px solid $text-color;
+    margin-top: $margin-top-m;
+
+    &:disabled {
+      border-color: $disabled-color;
+      color: $disabled-color;
+      cursor: not-allowed;
+    }
+  }
+
+  &__button {
+    @include displayRowCenter();
+    width: 150px;
+    height: 50px;
+    border: 1px solid $text-color;
+    margin-top: $margin-top-m;
+    cursor: pointer;
+
+    &:hover {
+      @include hoverButton();
+    }
+  }
+}

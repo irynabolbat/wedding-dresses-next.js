@@ -51,3 +51,9 @@
   @include displayColumn();
   align-items: center;
 }
+
+@mixin hoverButton() {
+  color: $black-color;
+  border-color: $black-color;
+  background-color: $selected-btn-color;
+}
