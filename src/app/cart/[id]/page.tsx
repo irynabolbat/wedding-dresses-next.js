@@ -1,20 +1,12 @@
+"use client";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCollection } from "@/api/dressesCollection/route";
 import { fetchCollectionAsync } from "@/store/slices/collectionSlice";
 import { AppDispatch, RootState } from "@/store/store";
 
 import Loader from "@/app/components/Loader";
 import ProductPage from "@/app/components/Product";
 import { Dress } from "@/types/Dress";
-
-export async function generateStaticParams() {
-  const dresses: Dress[] = await fetchCollection();
-
-  return dresses.map((dress) => ({
-    params: { id: dress.id },
-  }));
-}
 
 type ProductProps = {
   params: {
