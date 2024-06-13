@@ -62,24 +62,26 @@ export default function ProductItem({
       </div>
 
       <Link href={`/${baseUrl}/${dress.id}`}>
-        <div className="product__images">
-          <Image
-            src={dress.image_url_1}
-            width={400}
-            height={600}
-            alt={dress.title}
-            className="product__image"
-          />
-          <div className="product__hover__image">
+        {dress.images && (
+          <div className="product__images">
             <Image
-              src={dress.image_url_2}
+              src={dress.images[0]}
               width={400}
               height={600}
               alt={dress.title}
               className="product__image"
             />
+            <div className="product__hover__image">
+              <Image
+                src={dress.images[1]}
+                width={400}
+                height={600}
+                alt={dress.title}
+                className="product__image"
+              />
+            </div>
           </div>
-        </div>
+        )}
         <span className="product__title">
           <span className="product__name">{dress.title}</span>
         </span>

@@ -38,7 +38,7 @@ export default function Favourites() {
         title: item.title,
         price: item.price,
         description: item.description,
-        image_url_1: item.image_url_1,
+        images: item.images,
         size: curSize,
         count: 1,
       };
@@ -72,13 +72,15 @@ export default function Favourites() {
             >
               <div className="favourites__item__container">
                 <Link href={`/catalog/${item.id}`}>
-                  <Image
-                    src={item.image_url_1}
-                    width={100}
-                    height={120}
-                    alt={item.title}
-                    className="favourites__item__image"
-                  />
+                  {item.images && (
+                    <Image
+                      src={item.images[0]}
+                      width={100}
+                      height={120}
+                      alt={item.title}
+                      className="favourites__item__image"
+                    />
+                  )}
                 </Link>
                 <div className="favourites__item__details">
                   <h3 className="favourites__item__title">{item.title}</h3>

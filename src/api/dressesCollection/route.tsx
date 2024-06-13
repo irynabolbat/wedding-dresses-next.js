@@ -13,11 +13,7 @@ export const fetchCollection = async () => {
         title: docData.title,
         price: docData.price,
         description: docData.description,
-        image_url_1: docData.image_url_1,
-        image_url_2: docData.image_url_2,
-        image_url_3: docData.image_url_3,
-        image_url_4: docData.image_url_4,
-        image_url_5: docData.image_url_5,
+        images: docData.images,
         sizes: docData.sizes,
       } as Dress;
     });

@@ -24,7 +24,7 @@ export default function ProductPage({ product }: ProductProps) {
   const favourites = useSelector((state: RootState) => state.favourites.items);
 
   const [curSize, setCurSize] = useState<string | null>(null);
-  const [currentImage, setCurrentImage] = useState<string>(product.image_url_1);
+  const [currentImage, setCurrentImage] = useState<string>(product.images[0]);
   const [isFavourite, setIsFavourite] = useState(false);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function ProductPage({ product }: ProductProps) {
         title: product.title,
         price: product.price,
         description: product.description,
-        image_url_1: product.image_url_1,
+        images: product.images,
         size: curSize,
         count: 1,
       };
@@ -61,29 +61,16 @@ export default function ProductPage({ product }: ProductProps) {
   };
 
   const handleNextImage = () => {
-    const images = [
-      product.image_url_1,
-      product.image_url_2,
-      product.image_url_3,
-      product.image_url_4,
-      product.image_url_5,
-    ];
-    const currentIndex = images.indexOf(currentImage);
-    const nextIndex = (currentIndex + 1) % images.length;
-    setCurrentImage(images[nextIndex]);
+    const currentIndex = product.images.indexOf(currentImage);
+    const nextIndex = (currentIndex + 1) % product.images.length;
+    setCurrentImage(product.images[nextIndex]);
   };
 
   const handlePreviousImage = () => {
-    const images = [
-      product.image_url_1,
-      product.image_url_2,
-      product.image_url_3,
-      product.image_url_4,
-      product.image_url_5,
-    ];
-    const currentIndex = images.indexOf(currentImage);
-    const prevIndex = (currentIndex - 1 + images.length) % images.length;
-    setCurrentImage(images[prevIndex]);
+    const currentIndex = product.images.indexOf(currentImage);
+    const prevIndex =
+      (currentIndex - 1 + product.images.length) % product.images.length;
+    setCurrentImage(product.images[prevIndex]);
   };
 
   const handleAddToFavorites = () => {
@@ -122,13 +109,7 @@ export default function ProductPage({ product }: ProductProps) {
         </div>
 
         <div className="product__thumbnails">
-          {[
-            product.image_url_1,
-            product.image_url_2,
-            product.image_url_3,
-            product.image_url_4,
-            product.image_url_5,
-          ]
+          {product.images
             .filter((imageUrl) => imageUrl !== currentImage)
             .map((imageUrl, index) => (
               <div

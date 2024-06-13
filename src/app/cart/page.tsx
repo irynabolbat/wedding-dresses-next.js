@@ -79,13 +79,15 @@ export default function Cart() {
               >
                 <div className="cart__item__container">
                   <Link href={`/catalog/${item.id}`}>
-                    <Image
-                      src={item.image_url_1}
-                      width={100}
-                      height={120}
-                      alt={item.title}
-                      className="cart__item__image"
-                    />
+                    {item.images && (
+                      <Image
+                        src={item.images[0]}
+                        width={100}
+                        height={120}
+                        alt={item.title}
+                        className="cart__item__image"
+                      />
+                    )}
                   </Link>
                   <div className="cart__item__details">
                     <h3 className="cart__item__title">{item.title}</h3>
