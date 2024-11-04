@@ -18,7 +18,10 @@ export default function Pagination({
         (page) => (
           <button
             key={page}
-            onClick={() => onPageChange(page)}
+            onClick={() => {
+              onPageChange(page);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             className={page === currentPage ? "active" : ""}
           >
             {page}
