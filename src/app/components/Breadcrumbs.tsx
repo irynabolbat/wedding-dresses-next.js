@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 import ArrowIcon from "@/app/assets/icons/chevron-right.svg";
 import "@/app/styles/Breadcrumbs.scss";
 import { Dress } from "@/types/Dress";
+import cn from "classnames";
 
 export const Breadcrumbs = () => {
   const [dressTitle, setDressTitle] = useState<string>("");
@@ -59,7 +60,9 @@ export const Breadcrumbs = () => {
       />
       <Link
         href={pageLink}
-        className="breadcrumbs__link"
+        className={cn("breadcrumbs__link", {
+          "breadcrumbs__last_point": path.length <= 2,
+        })}
       >
         {pagePath.charAt(0).toUpperCase() + pagePath.slice(1)}
       </Link>
@@ -73,7 +76,7 @@ export const Breadcrumbs = () => {
             alt="Arrow icon"
             className="breadcrumbs__arrow"
           />
-          <div>{dressTitle}</div>
+          <div className="breadcrumbs__last_point">{dressTitle}</div>
         </>
       )}
     </div>
