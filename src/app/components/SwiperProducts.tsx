@@ -34,13 +34,17 @@ export default function SwiperProducts({ popularDresses }: CarouselProps) {
               allowTouchMove: true,
               speed: 400,
             },
-            768: {
+            668: {
               slidesPerView: 3,
               slidesPerGroup: 3,
             },
-            1020: {
+            968: {
               slidesPerView: 4,
               slidesPerGroup: 4,
+            },
+            1450: {
+              slidesPerView: 5,
+              slidesPerGroup: 5,
               speed: 700,
               allowTouchMove: false,
             },

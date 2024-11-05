@@ -58,37 +58,36 @@ export default function Cart() {
         <p className="cart__emptyMessage">Your cart is empty</p>
       ) : (
         <>
-          <button
-            className="cart__clearCartButton"
-            onClick={handleClearCart}
-          >
+          <button className="cart__clearCartButton" onClick={handleClearCart}>
             Clear Cart
-            <Image
-              src={TrashIcon}
-              width={20}
-              height={20}
-              alt="Remove"
-            />
+            <Image src={TrashIcon} width={20} height={20} alt="Remove" />
           </button>
 
           <ul className="cart__itemsList">
             {Object.values(cartItems).map((item: CartProduct | any) => (
-              <li
-                key={item.id}
-                className="cart__item"
-              >
+              <li key={item.id} className="cart__item">
                 <div className="cart__item__container">
-                  <Link href={`/catalog/${item.id}`}>
-                    {item.images && (
-                      <Image
-                        src={item.images[0]}
-                        width={100}
-                        height={120}
-                        alt={item.title}
-                        className="cart__item__image"
-                      />
-                    )}
-                  </Link>
+                  <div className="cart__item__container-mob">
+                    <Link href={`/catalog/${item.id}`}>
+                      {item.images && (
+                        <Image
+                          src={item.images[0]}
+                          width={100}
+                          height={120}
+                          alt={item.title}
+                          className="cart__item__image"
+                        />
+                      )}
+                    </Link>
+                    <div className="cart__item__details-mob">
+                      <h3 className="cart__item__title">{item.title}</h3>
+                      <p className="cart__item__size">Size: {item.size}</p>
+                      <p className="cart__item__price">
+                        Price: € {item.price.toLocaleString()}.00
+                      </p>
+                    </div>
+                  </div>
+
                   <div className="cart__item__details">
                     <h3 className="cart__item__title">{item.title}</h3>
                     <p className="cart__item__size">Size: {item.size}</p>
@@ -115,6 +114,12 @@ export default function Cart() {
                     </button>
                   </div>
 
+                  <div>
+                    <p className="cart__item__price-sum">
+                      Sum: € {(item.price * item.count).toLocaleString()}.00 EUR
+                    </p>
+                  </div>
+
                   <button
                     className="cart__removeButton"
                     onClick={() => removeFromCart(item)}
@@ -134,10 +139,7 @@ export default function Cart() {
             Total: € {totalPrice.toLocaleString()}.00 EUR
           </p>
 
-          <button
-            className="cart__submitOrderButton"
-            onClick={submitOrder}
-          >
+          <button className="cart__submitOrderButton" onClick={submitOrder}>
             Submit Order
           </button>
         </>
