@@ -28,14 +28,31 @@
       width: 100%;
     }
 
+    &__container-mob {
+      @include displayColumn();
+    }
+
     &__image {
       margin-right: 20px;
       border-radius: $border-radius;
     }
 
     &__details {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        @include displayColumn();
+        text-align: left;
+      }
+    }
+
+    &__details-mob {
       @include displayColumn();
       text-align: left;
+
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
     }
 
     &__title {
@@ -50,6 +67,14 @@
     &__price {
       font-size: $font-size-m;
       color: $gray-color;
+
+      &-sum {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+          display: block;
+        }
+      }
     }
   }
 
