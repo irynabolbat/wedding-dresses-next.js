@@ -21,7 +21,7 @@ export default function Cart() {
   const removeFromCart = (dress: CartProduct) => {
     const dressId = `${dress.id}_${dress.size}`;
     dispatch(remove(dressId));
-    toast.success(`${dress.title} has been removed from cart`);
+    toast(`${dress.title} has been removed from cart`);
   };
 
   const submitOrder = () => {
@@ -34,7 +34,7 @@ export default function Cart() {
 
   const handleClearCart = () => {
     dispatch(clear());
-    toast.success("The cart has been cleared");
+    toast("The cart has been cleared");
   };
 
   const decreaseQuantity = (dress: CartProduct) => {

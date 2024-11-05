@@ -52,7 +52,7 @@ export default function ProductPage({ product }: ProductProps) {
 
       dispatch(add(productToAdd));
       setCurSize(null);
-      toast.success(`${product.title} has been added to the cart`);
+      toast(`🛍️ ${product.title} has been added to the cart`);
     }
   };
 
@@ -75,12 +75,12 @@ export default function ProductPage({ product }: ProductProps) {
 
   const handleAddToFavorites = () => {
     dispatch(addToFav(product));
-    toast.success(`${product.title} has been added to favorites`);
+    toast(`${product.title} has been added to favorites`);
   };
 
   const handleRemoveFromFavorites = () => {
     dispatch(remove(product.id));
-    toast.success(`${product.title} has been removed from favorites`);
+    toast(`${product.title} has been removed from favorites`);
   };
 
   return (

@@ -38,10 +38,10 @@ export default function ProductItem({
   const handleFavourite = () => {
     if (isFavourite) {
       dispatch(remove(dress.id));
-      toast.success(`${dress.title} has been removed from the favourites`);
+      toast(`${dress.title} has been removed from the favourites`);
     } else {
       dispatch(add(dress));
-      toast.success(`${dress.title} has been added to the favourites`);
+      toast(`❤️ ${dress.title} has been added to the favourites`);
     }
     setIsFavourite(!isFavourite);
   };

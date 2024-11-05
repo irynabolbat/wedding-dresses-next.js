@@ -24,7 +24,7 @@ export default function Favourites() {
 
   const handleRemove = (item: Dress) => {
     dispatch(remove(item.id));
-    toast.success(`${item.title} has been removed from favourites`);
+    toast(`${item.title} has been removed from favourites`);
   };
 
   const handleChooseSize = (size: string) => {
@@ -45,7 +45,7 @@ export default function Favourites() {
 
       dispatch(add(productToAdd));
       setCurSize(null);
-      toast.success(`${item.title} has been added to the cart`);
+      toast(`🛍️ ${item.title} has been added to the cart`);
     }
   };
 
