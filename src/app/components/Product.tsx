@@ -75,7 +75,7 @@ export default function ProductPage({ product }: ProductProps) {
 
   const handleAddToFavorites = () => {
     dispatch(addToFav(product));
-    toast(`${product.title} has been added to favorites`);
+    toast(`❤️ ${product.title} has been added to favorites`);
   };
 
   const handleRemoveFromFavorites = () => {
