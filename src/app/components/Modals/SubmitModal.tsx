@@ -6,6 +6,7 @@ import { TranksModal } from "./TranksModal";
 import { Input } from "./Input";
 import "@/app/styles/ModalWindow.scss";
 import PageTitle from "../PageTitle";
+import emailjs from '@emailjs/browser';
 
 type SubmitModalProps = {
   closeModal: () => void;
@@ -16,9 +17,34 @@ export const SubmitModal = ({ closeModal, cleanCart }: SubmitModalProps) => {
   const [thankYouModal, setThankYouModal] = useState(false);
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [phoneNum, setPhoneNum] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+
+  const sendEmail = () => {
+    const serviceId = process.env.NEXT_PUBLIC_YOUR_SERVICE_ID || '';
+    const templateId = process.env.NEXT_PUBLIC_YOUR_TEMPLATE_ID || '';
+    const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY || '';
+
+    const templateParams = {
+      subject: "Order in BRIDE'S CHARM",
+      name: `${firstName} ${lastName}`,
+      email,
+      phone: phoneNum,
+      message
+    };
+
+    emailjs
+    .send(serviceId, templateId, templateParams, {
+      publicKey: publicKey,
+    }).catch((error) => {
+        console.error('Error:', error.text)
+    });
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    sendEmail();
     setThankYouModal(true);
     cleanCart();
   };
@@ -71,12 +97,14 @@ export const SubmitModal = ({ closeModal, cleanCart }: SubmitModalProps) => {
                 labelText="Phone"
                 inputType="tel"
                 inputName="phoneNumber"
+                changeInputValue={setPhoneNum}
               />
 
               <Input
                 labelText="E-mail"
                 inputType="email"
                 inputName="email"
+                changeInputValue={setEmail}
               />
 
               <div className="mb-4">
@@ -84,6 +112,7 @@ export const SubmitModal = ({ closeModal, cleanCart }: SubmitModalProps) => {
                 <textarea
                   name="comment"
                   className="modalWindow__form__input border w-full"
+                  onChange={e => setMessage(e.target.value)}
                 ></textarea>
               </div>
 
