@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/config";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,6 +11,8 @@ import BurgerIcon from "@/app/assets/icons/burger-menu.svg";
 import CloseIcon from "@/app/assets/icons/close-menu.svg";
 import FavouriteIcon from "@/app/assets/icons/favourite.svg";
 import CartIcon from "@/app/assets/icons/shopping_bag.svg";
+import LoginIcon from "@/app/assets/icons/arrow-in-right.svg";
+import PersonIcon from "@/app/assets/icons/person-icon.svg";
 import Logo from "@/app/assets/images/logo-removebg-preview.png";
 import "@/app/styles/Header.scss";
 
@@ -25,15 +29,13 @@ export default function Header() {
     (state: RootState) => state.cart.items
   );
 
+  const [user] = useAuthState(auth);
+
   return (
     <header className="header">
       <div className="header__logo">
         <Link href="/">
-          <Image
-            src={Logo}
-            height={55}
-            alt="Logo"
-          />
+          <Image src={Logo} height={55} alt="Logo" />
         </Link>
       </div>
 
@@ -73,16 +75,9 @@ export default function Header() {
       </nav>
 
       <div className="header__icons">
-        <Link
-          href="/favourites"
-          className="header__icon__link"
-        >
+        <Link href="/favourites" className="header__icon__link">
           <div>
-            <Image
-              src={FavouriteIcon}
-              width={25}
-              alt="Favourites"
-            />
+            <Image src={FavouriteIcon} width={25} alt="Favourites" />
             {favouriteItems.length > 0 && (
               <span className="header__icon__link__counter">
                 {favouriteItems.length}
@@ -91,16 +86,9 @@ export default function Header() {
           </div>
         </Link>
 
-        <Link
-          href="/cart"
-          className="header__icon__link"
-        >
+        <Link href="/cart" className="header__icon__link">
           <div className="header__icon__link__container">
-            <Image
-              src={CartIcon}
-              width={25}
-              alt="Cart"
-            />
+            <Image src={CartIcon} width={25} alt="Cart" />
             {Object.keys(cartItems).length > 0 && (
               <span className="header__icon__link__counter">
                 {Object.keys(cartItems).length}
@@ -108,12 +96,27 @@ export default function Header() {
             )}
           </div>
         </Link>
+
+        {!user ? (
+          <Link href="/login" className="header__icon__link">
+            <div>
+              <Image src={LoginIcon} width={25} alt="Login" />
+            </div>
+          </Link>
+        ) : (
+          <Link
+            href="#"
+            className="header__icon__link"
+            onClick={() => auth.signOut()}
+          >
+            <div>
+              <Image src={PersonIcon} width={25} alt="Login" />
+            </div>
+          </Link>
+        )}
       </div>
 
-      <button
-        className="burger__menu"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
+      <button className="burger__menu" onClick={() => setMenuOpen(!menuOpen)}>
         <Image
           src={menuOpen ? CloseIcon : BurgerIcon}
           width={20}
@@ -128,12 +131,7 @@ export default function Header() {
             className="burger__menu__close"
             onClick={() => setMenuOpen(false)}
           >
-            <Image
-              src={CloseIcon}
-              width={20}
-              height={20}
-              alt="Close"
-            />
+            <Image src={CloseIcon} width={20} height={20} alt="Close" />
           </button>
           <nav className="burger__navigation">
             <Link

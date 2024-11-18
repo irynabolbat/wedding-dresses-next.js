@@ -173,3 +173,150 @@
     }
   }
 }
+
+/* Auth pages */
+.auth {
+  display: flex;
+  flex-direction: column-reverse;
+  min-height: 100vh;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &_img-wrapper {
+    flex: 1;
+  }
+
+  &_img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &_form-wrapper {
+    flex: 1;
+    padding: 40px;
+  }
+
+  &_form-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &_form {
+    width: 100%;
+
+    &-inputs {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &_btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    gap: 5%;
+  }
+
+  &_signup {
+    right: auto;
+    width: 150px;
+    font-size: $font-size-s;
+    padding: 10px 0;
+    border: 1px solid $text-color;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      @include hoverButton();
+    }
+  }
+
+  &_signin {
+    right: auto;
+    width: 150px;
+    font-size: $font-size-s;
+    padding: 10px 0;
+    border: 1px solid $text-color;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+
+    &:hover {
+      @include hoverButton();
+    }
+  }
+
+  &_forgot-pwd {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 20px;
+
+    &-link {
+      font-size: $font-size-xs;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &_gmail {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &_header-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+
+    .title-wrapper {
+      h2 {
+        font-size: $font-size-xl;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &_login-now {
+    text-align: center;
+    margin-top: 20px;
+    font-size: $font-size-s;
+    color: $text-color;
+
+    &-link {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &_register-now {
+    text-align: center;
+    margin-top: 20px;
+    font-size: $font-size-s;
+    color: $text-color;
+
+    &-link {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

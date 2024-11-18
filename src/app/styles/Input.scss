@@ -1,0 +1,18 @@
+@import "../variables.scss";
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  padding: 12px;
+  font-size: $font-size-m;
+  width: 100%;
+  border-bottom: 1px solid $text-color;
+  transition: border-color 0.3s ease;
+
+  &_error {
+    color: red;
+  }
+}
