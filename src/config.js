@@ -1,18 +1,20 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyCVMJgECJ3VhMhUSFgCbHzmk5w2ZEC5YBc",
-  authDomain: "wedding-dresses-c095d.firebaseapp.com",
-  databaseURL: "https://wedding-dresses-c095d-default-rtdb.firebaseio.com",
-  projectId: "wedding-dresses-c095d",
-  storageBucket: "wedding-dresses-c095d.appspot.com",
-  messagingSenderId: "623119047250",
-  appId: "1:623119047250:web:b57a35c326769a29179d8b",
-  measurementId: "G-WWSHRKLER3",
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  databaseURL: process.env.NEXT_PUBLIC_DB_URL,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_MEASUARENEBTID,
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
-export { app, db };
+export { app, db, auth };

@@ -24,8 +24,17 @@ export const Breadcrumbs = () => {
 
   const path = usePathname().split("/");
 
-  const pagePath = path[1];
-  const pageLink = `/${pagePath.toLowerCase()}`;
+  const breadcrumbPages = [
+    "catalog",
+    "popular",
+    "about",
+    "contacts",
+    "favourites",
+    "cart",
+  ];
+
+  const pagePath = path[1]?.toLowerCase();
+  const pageLink = `/${pagePath}`;
 
   useEffect(() => {
     if (path.length > 2) {
@@ -39,16 +48,16 @@ export const Breadcrumbs = () => {
     }
   }, [path, collection]);
 
-  if (path.length === 2 && path[1] === "") {
+  if (
+    (path.length === 2 && path[1] === "") ||
+    !breadcrumbPages.includes(pagePath)
+  ) {
     return null;
   }
 
   return (
     <div className="breadcrumbs">
-      <Link
-        href="/"
-        className="breadcrumbs__link"
-      >
+      <Link href="/" className="breadcrumbs__link">
         Home
       </Link>
       <Image
@@ -61,7 +70,7 @@ export const Breadcrumbs = () => {
       <Link
         href={pageLink}
         className={cn("breadcrumbs__link", {
-          "breadcrumbs__last_point": path.length <= 2,
+          breadcrumbs__last_point: path.length <= 2,
         })}
       >
         {pagePath.charAt(0).toUpperCase() + pagePath.slice(1)}
