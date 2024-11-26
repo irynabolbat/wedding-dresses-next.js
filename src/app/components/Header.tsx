@@ -6,6 +6,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/config";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 import BurgerIcon from "@/app/assets/icons/burger-menu.svg";
 import CloseIcon from "@/app/assets/icons/close-menu.svg";
@@ -104,15 +110,19 @@ export default function Header() {
             </div>
           </Link>
         ) : (
-          <Link
-            href="#"
-            className="header__icon__link"
-            onClick={() => auth.signOut()}
-          >
-            <div>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
               <Image src={PersonIcon} width={25} alt="Login" />
-            </div>
-          </Link>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem
+                onClick={() => auth.signOut()}
+                style={{ cursor: "pointer" }}
+              >
+                Exit
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         )}
       </div>
 

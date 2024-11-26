@@ -8,6 +8,8 @@ import { remove } from "@/store/slices/favouritesSlice";
 import { add } from "@/store/slices/cartSlice";
 import Image from "next/image";
 import Link from "next/link";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/config";
 
 import CartIcon from "@/app/assets/icons/shopping_bag.svg";
 import TrashIcon from "@/app/assets/icons/trash.svg";
@@ -17,6 +19,7 @@ import PageTitle from "../components/PageTitle";
 import SizeModal from "../components/Modals/SizeModal";
 
 export default function Favourites() {
+  const [user] = useAuthState(auth);
   const dispatch = useDispatch();
   const favourites = useSelector((state: RootState) => state.favourites.items);
   const [curSize, setCurSize] = useState<string | null>(null);
@@ -66,10 +69,7 @@ export default function Favourites() {
       ) : (
         <ul className="favourites__itemsList">
           {favourites.map((item: Dress) => (
-            <li
-              key={item.id}
-              className="favourites__item"
-            >
+            <li key={item.id} className="favourites__item">
               <div className="favourites__item__container">
                 <Link href={`/catalog/${item.id}`}>
                   {item.images && (
@@ -118,12 +118,7 @@ export default function Favourites() {
                     className="favourites__btn"
                     onClick={() => setSelectedItem(item)}
                   >
-                    <Image
-                      src={CartIcon}
-                      width={20}
-                      height={20}
-                      alt="Cart"
-                    />
+                    <Image src={CartIcon} width={20} height={20} alt="Cart" />
                   </button>
                 </div>
               </div>
