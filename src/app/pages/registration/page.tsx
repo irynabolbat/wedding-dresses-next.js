@@ -6,9 +6,9 @@ import { auth } from "@/config";
 import Image from "next/image";
 import Link from "next/link";
 import dressImg from "@/app/assets/images/register.jpg";
-import { validateEmail, validatePassword } from "../helpers/utils";
+import { validateEmail, validatePassword } from "../../helpers/utils";
 import { toast } from "react-toastify";
-import Input from "../components/Input";
+import Input from "../../components/Input";
 import { useRouter } from "next/navigation";
 
 export default function Registration() {

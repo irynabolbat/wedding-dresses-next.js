@@ -5,10 +5,10 @@ import { fetchCollectionAsync } from "@/store/slices/collectionSlice";
 import { AppDispatch, RootState } from "@/store/store";
 
 import { Dress } from "@/types/Dress";
-import Loader from "../components/Loader";
-import PageTitle from "../components/PageTitle";
-import Pagination from "../components/Pagination";
-import ProductItem from "../components/ProductItem";
+import Loader from "../../components/Loader";
+import PageTitle from "../../components/PageTitle";
+import Pagination from "../../components/Pagination";
+import ProductItem from "../../components/ProductItem";
 
 export default function PopularProducts() {
   const dispatch = useDispatch<AppDispatch>();
