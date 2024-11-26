@@ -12,9 +12,9 @@ import {
 } from "firebase/auth";
 import { auth } from "@/config";
 import { toast } from "react-toastify";
-import Input from "../components/Input";
+import Input from "../../components/Input";
 import { useRouter } from "next/navigation";
-import { validateEmail, validatePassword } from "../helpers/utils";
+import { validateEmail, validatePassword } from "../../helpers/utils";
 
 export default function Login() {
   const [email, setEmail] = useState<string>("");

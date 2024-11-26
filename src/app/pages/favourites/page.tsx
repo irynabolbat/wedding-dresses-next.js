@@ -15,8 +15,8 @@ import CartIcon from "@/app/assets/icons/shopping_bag.svg";
 import TrashIcon from "@/app/assets/icons/trash.svg";
 import { Dress } from "@/types/Dress";
 import { CartProduct } from "@/types/CartProduct";
-import PageTitle from "../components/PageTitle";
-import SizeModal from "../components/Modals/SizeModal";
+import PageTitle from "../../components/PageTitle";
+import SizeModal from "../../components/Modals/SizeModal";
 
 export default function Favourites() {
   const [user] = useAuthState(auth);

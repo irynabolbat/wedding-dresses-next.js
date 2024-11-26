@@ -10,7 +10,7 @@ import { RootState } from "@/store/store";
 import TrashIcon from "@/app/assets/icons/trash.svg";
 import { CartProduct } from "@/types/CartProduct";
 import PageTitle from "@/app/components/PageTitle";
-import { SubmitModal } from "../components/Modals/SubmitModal";
+import { SubmitModal } from "../../components/Modals/SubmitModal";
 
 export default function Cart() {
   const dispatch = useDispatch();
