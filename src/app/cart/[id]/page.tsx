@@ -30,8 +30,7 @@ const Product = ({ params: { id } }: ProductProps) => {
 };
 
 export const generateStaticParams = async () => {
-  // Assuming you have a collection that contains the products
-  const collection: Dress[] | any = await fetchCollectionAsync(); // or fetch from API
+  const collection: Dress[] | any = await fetchCollectionAsync();
   return collection.map((item: Dress) => ({
     id: item.id,
   }));
