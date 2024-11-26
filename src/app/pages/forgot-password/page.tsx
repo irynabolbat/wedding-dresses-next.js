@@ -6,7 +6,7 @@ import dressImg from "@/app/assets/images/reset_pswd.jpg";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "@/config";
 import { toast } from "react-toastify";
-import Input from "../components/Input";
+import Input from "../../components/Input";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
