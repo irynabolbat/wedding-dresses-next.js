@@ -14,7 +14,7 @@ type ProductProps = {
   };
 };
 
-export default function Product({ params: { id } }: ProductProps) {
+const Product = ({ params: { id } }: ProductProps) => {
   const dispatch = useDispatch<AppDispatch>();
   const collection = useSelector((state: RootState) => state.collection.value);
 
@@ -27,4 +27,14 @@ export default function Product({ params: { id } }: ProductProps) {
   if (!product) return <Loader />;
 
   return <ProductPage product={product} />;
-}
+};
+
+export const generateStaticParams = async () => {
+  // Assuming you have a collection that contains the products
+  const collection: Dress[] | any = await fetchCollectionAsync(); // or fetch from API
+  return collection.map((item: Dress) => ({
+    id: item.id,
+  }));
+};
+
+export default Product;
