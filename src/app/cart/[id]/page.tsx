@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCollectionAsync } from "@/store/slices/collectionSlice";
@@ -27,12 +29,4 @@ export default function Product({ params: { id } }: ProductProps) {
   if (!product) return <Loader />;
 
   return <ProductPage product={product} />;
-}
-
-export async function generateStaticParams() {
-  const collection: Dress[] = await fetchCollection();
-
-  return collection.map((item: Dress) => ({
-    id: item.id,
-  }));
 }
