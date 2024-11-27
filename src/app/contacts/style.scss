@@ -1,0 +1,28 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.contacts {
+  margin: auto;
+  margin-top: $margin-top-s;
+
+  &__details {
+    margin-bottom: 20px;
+  }
+
+  &__workingHours {
+    margin-bottom: 20px;
+  }
+
+  &__map {
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: $font-size-m;
+  }
+}
+
+iframe {
+  width: 100%;
+  border: 0;
+}

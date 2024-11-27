@@ -1,0 +1,151 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.cart {
+  @include displayColumnJC();
+  margin: 0 auto;
+  margin-top: $margin-top-s;
+
+  &__emptyMessage {
+    text-align: center;
+    color: $empty-color;
+    font-size: $font-size-m;
+    margin-top: $margin-top-s;
+  }
+
+  &__itemsList {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    @include displayRowSpaceBetween();
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+
+    &__container {
+      @include displayRowSpaceBetween();
+      width: 100%;
+    }
+
+    &__container-mob {
+      @include displayColumn();
+    }
+
+    &__image {
+      margin-right: 20px;
+      border-radius: $border-radius;
+    }
+
+    &__details {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        @include displayColumn();
+        text-align: left;
+      }
+    }
+
+    &__details-mob {
+      @include displayColumn();
+      text-align: left;
+
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+
+    &__title {
+      font-size: $font-size-l;
+    }
+
+    &__size {
+      font-size: $font-size-s;
+      color: $gray-color;
+    }
+
+    &__price {
+      font-size: $font-size-m;
+      color: $gray-color;
+
+      &-sum {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__removeButton {
+    border: none;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+
+  &__total {
+    font-size: $font-size-m;
+    margin-top: $margin-top-m;
+    text-align: right;
+    padding-right: 20px;
+  }
+
+  &__buttonGroup {
+    @include displayRowJCBetween();
+    margin-top: $margin-top-m;
+  }
+
+  &__clearCartButton {
+    @include displayRowAI();
+    justify-content: end;
+    gap: 5%;
+    width: 200px;
+    color: $disabled-color;
+    margin-left: auto;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    &:hover {
+      color: $text-color;
+    }
+  }
+
+  &__submitOrderButton {
+    margin-top: $margin-top-l;
+    width: 150px;
+    height: 50px;
+    border: 1px solid $text-color;
+    margin-top: $margin-top-m;
+    margin-left: auto;
+    margin-right: 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      @include hoverButton();
+    }
+  }
+
+  &__item__quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &--operation {
+      background-color: $white-color;
+      border: 1px solid $text-color;
+      border-radius: 50%;
+      padding: 5px 12px;
+      cursor: pointer;
+
+      &:hover {
+        @include hoverButton();
+      }
+    }
+
+    &--number {
+      font-size: $font-size-m;
+    }
+  }
+}

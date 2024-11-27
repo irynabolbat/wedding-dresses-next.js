@@ -1,0 +1,23 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.popular {
+  &__list {
+    @include displayRowSpaceBetween();
+    flex-wrap: wrap;
+    margin-top: $margin-top-s;
+  }
+}
+
+.itemWidth {
+  width: 100%;
+  @include displayRowJC();
+
+  @media screen and (min-width: 560px) {
+    width: 49%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 32%;
+  }
+}
