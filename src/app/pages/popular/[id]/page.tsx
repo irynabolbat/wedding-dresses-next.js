@@ -28,3 +28,11 @@ export default function Product({ params: { id } }: ProductProps) {
 
   return <ProductPage product={product} />;
 }
+
+export async function generateStaticParams() {
+  const collection: Dress[] | any = await fetchCollectionAsync();
+ 
+  return collection.map((item: Dress) => ({
+    id: item?.id,
+  }))
+}
