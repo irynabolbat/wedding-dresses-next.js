@@ -7,6 +7,7 @@ import { AppDispatch, RootState } from "@/store/store";
 import Loader from "@/app/components/Loader";
 import ProductPage from "@/app/components/Product";
 import { Dress } from "@/types/Dress";
+import { fetchCollection } from "@/api/dressesCollection/route";
 
 type ProductProps = {
   params: {
@@ -27,4 +28,12 @@ export default function Product({ params: { id } }: ProductProps) {
   if (!product) return <Loader />;
 
   return <ProductPage product={product} />;
+}
+
+export async function generateStaticParams() {
+  const collection: Dress[] = await fetchCollection();
+
+  return collection.map((item: Dress) => ({
+    id: item.id,
+  }));
 }
