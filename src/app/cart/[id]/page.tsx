@@ -10,7 +10,7 @@ type ProductProps = {
 };
 
 export default async function Product({ params: { id } }: ProductProps) {
-  const collection: Dress[] = await fetchCollection()
+  const collection: Dress[] = await fetchCollection();
 
   const product = collection.find((dress: Dress) => dress.id === id) || null;
 
