@@ -16,6 +16,22 @@ type ProductProps = {
   };
 };
 
+export async function generateStaticParams() {
+  // Пример: данные можно взять из API, базы данных или определить вручную
+  const catalogItems = [
+    { id: '1' },
+    { id: '2' },
+    { id: '3' },
+  ];
+
+  // Возвращаем массив параметров
+  return catalogItems.map((item) => ({
+    id: item.id,
+  }));
+}
+
+
+
 export default function Product({ params: { id } }: ProductProps) {
   const dispatch = useDispatch<AppDispatch>();
   const collection = useSelector((state: RootState) => state.collection.value);
