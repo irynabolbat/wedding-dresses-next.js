@@ -3,6 +3,8 @@ import ProductPage from "@/app/components/Product";
 import { Dress } from "@/types/Dress";
 import { fetchCollection } from "@/api/dressesCollection/route";
 
+export const dynamic = 'force-static'
+
 type ProductProps = {
   params: {
     id: string;
